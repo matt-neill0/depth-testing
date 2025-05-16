@@ -1,14 +1,14 @@
 # core numerical + CV
-numpy>=1.23
-opencv-python>=4.8
+numpy>=1.23.5
+opencv-python>=4.11.0.86
 
 # Intel RealSense camera support
-pyrealsense2>=2.56
+pyrealsense2>=2.55.1.6486
 
 # deep-learning stack
 torch>=2.2
 transformers>=4.38
 huggingface_hub>=0.23
-accelerate>=0.27
-pillow>=10.0
-tqdm>=4.66
+accelerate>=0.34
+pillow>=10.4.0
+tqdm>=4.66.5
