@@ -25,6 +25,8 @@ pipe = pipeline("depth-estimation",
                 model="depth-anything/Depth-Anything-V2-Large-hf",
                 device="cuda:0")
 
+COLOURMAP = cv2.COLORMAP_TURBO
+
 stop = False
 while not stop:
     left, _ = cam.get_frames()      # ignore right-eye frame, Depth-Anything is monocular
@@ -39,9 +41,11 @@ while not stop:
     depth_pil = pipe(rgb_pil)["depth"]
     depth_np  = np.array(depth_pil)      # 8-bit relative depth for imshow
 
+    depth_col = cv2.applyColorMap(depth_np, COLOURMAP)
+
     # ───── display ─────
     cv2.imshow("Camera (gray)", left)
-    cv2.imshow("DepthAnything relative depth", depth_np)
+    cv2.imshow("DepthAnything relative depth", depth_col)
 
     # press Q → clean shutdown
     if cv2.waitKey(1) & 0xFF == ord('q'):

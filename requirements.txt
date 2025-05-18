@@ -12,3 +12,5 @@ huggingface_hub>=0.23
 accelerate>=0.34
 pillow>=10.4.0
 tqdm>=4.66.5
+timm==0.6.13,
+einops>=0.6
